@@ -11797,11 +11797,129 @@ $( document ).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="How-to-package-and-distribut-projects---with-a-template-project">How to package and distribut projects - with <a href="https://github.com/yang-zhang/howto-pypi">a template project</a><a class="anchor-link" href="#How-to-package-and-distribut-projects---with-a-template-project">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Upgrade <code>setuptools</code> and install <code>twine</code> and <code>wheel</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Create <code>setup.py</code>, for <a href="https://github.com/yang-zhang/howto-pypi/blob/master/setup.py">example</a>:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;howto-pypi&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.0.0&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;A template project about how to package and distribute </span><span class="se">\</span>
+<span class="s1">    projects&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://github.com/yang-zhang/howto-pypi&#39;</span><span class="p">,</span>
+    <span class="n">py_modules</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;display&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Create a source distribution:</p>
+<div class="highlight"><pre><span></span>python setup.py sdist
+</pre></div>
+<p>Build the <a href="https://packaging.python.org/tutorials/distributing-packages/#wheels">wheel</a>:</p>
+<div class="highlight"><pre><span></span>python setup.py bdist_wheel --universal
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Uploading the project to PyPI</p>
+<p>Register on PyPI and Create a ~/.pypirc file with your username and password:</p>
+
+<pre><code>[pypi]
+username = yang-zhang
+password = my-passward</code></pre>
+<p>Upload:</p>
+<div class="highlight"><pre><span></span>$ twine upload dist/*
+Uploading distributions to https://upload.pypi.org/legacy/
+Uploading howto_pypi-0.0.0-py2.py3-none-any.whl
+<span class="o">[================================]</span> 4351/4351 - 00:00:01
+Uploading howto-pypi-0.0.0.tar.gz
+<span class="o">[================================]</span> 3234/3234 - 00:00:00
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now you can install the package:</p>
+<div class="highlight"><pre><span></span>$ pip install howto-pypi
+Collecting howto-pypi
+  Downloading howto_pypi-0.0.0-py2.py3-none-any.whl
+Installing collected packages: howto-pypi
+Successfully installed howto-pypi-0.0.0
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And run:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">howto_pypi</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">howto_pypi</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">howto</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>References:</p>
 <ul>
 <li><a href="https://packaging.python.org/tutorials/distributing-packages/">https://packaging.python.org/tutorials/distributing-packages/</a></li>
 <li><a href="https://github.com/pypa/sampleproject">https://github.com/pypa/sampleproject</a></li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://yang-zhang.github.io/">Home</a></p>
 
 </div>
 </div>

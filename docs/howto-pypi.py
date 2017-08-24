@@ -47,7 +47,7 @@
 
 # And run:
 # ```py
-# >>> from howto_pypi import display
+# >>> import howto_pypi.display
 # >>> howto_pypi.display.howto()
 # ```
 

@@ -1,11 +1,11 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(
     name='howto-pypi',
-    version='0.0.0',
-    description='A template project about how to package and distribute \
-    projects',
+    version='0.0.6',
+    description='A template project about how to package and distribute rojects',
     url='https://github.com/yang-zhang/howto-pypi',
-    py_modules=["display"],
+    packages=find_packages(exclude=['contrib', 'tests'])
+
 )

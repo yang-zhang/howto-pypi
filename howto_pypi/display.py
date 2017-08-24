@@ -3,4 +3,4 @@ import webbrowser
 
 
 def howto():
-    webbrowser.open('file://' + os.path.realpath('docs/howto-pypi.html'))
+    webbrowser.open("http://nbviewer.jupyter.org/github/yang-zhang/howto-pypi/blob/master/docs/howto-pypi.ipynb")

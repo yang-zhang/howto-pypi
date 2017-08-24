@@ -6,19 +6,6 @@
 # Upgrade `setuptools` and install `twine` and `wheel`.
 
 # Create `setup.py`, for [example](https://github.com/yang-zhang/howto-pypi/blob/master/setup.py):
-# ```py
-# from setuptools import setup
-# 
-# 
-# setup(
-#     name='howto-pypi',
-#     version='0.0.0',
-#     description='A template project about how to package and distribute \
-#     projects',
-#     url='https://github.com/yang-zhang/howto-pypi',
-#     py_modules=["display"],
-# )
-# ```
 
 # Create a source distribution:
 # ```sh
